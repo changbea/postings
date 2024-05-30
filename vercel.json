@@ -1,6 +1,5 @@
 {
     "rewrites": [
         { "source": "./dist/(.*)", "destination": "./dist/index.html" }
-    ],
-    "homepage": "https://postings-ivory.vercel.app/"
+    ]
 }
