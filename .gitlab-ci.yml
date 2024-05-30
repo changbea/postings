@@ -13,7 +13,7 @@ pages:
     - npm install
     - npm run build
     # - cp -a dist/. public/
-    - npm run dev
+    # - npm run dev
   artifacts:
     paths:
       - public

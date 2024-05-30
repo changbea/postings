@@ -5,6 +5,7 @@ import { auth, onSocialClick, dbservice, storage } from './serverbase'
 import { updateProfile, getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import { collection, query, where, orderBy, addDoc, getDocs, doc, onSnapshot, deleteDoc, updateDoc, setDoc } from 'firebase/firestore';
 import Steppers from './Steppers'
+import { Button } from './Buttoning'
 
 function Auth({ newAccount, setNewAccount }) {
   const [email, setEmail] = useState('')
@@ -115,6 +116,7 @@ function Auth({ newAccount, setNewAccount }) {
         {!newAccount.account && <button className='btn btn-outline-primary' onClick={onSocialClick}>구글로 로그인</button>}
         <button onClick={toggleAccount} className='btn btn-outline-primary'>{newAccount.account ? '로그인' : '회원가입'}</button>
       </div>
+      <Button variant="outline">Button</Button>
     </div>
   )
 }
