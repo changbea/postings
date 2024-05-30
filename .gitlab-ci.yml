@@ -12,7 +12,7 @@ pages:
   script:
     - npm install
     - npm run build
-    # - cp -a dist/. public/
+    - cp -a public/
     # - npm run dev
   artifacts:
     paths:
