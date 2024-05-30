@@ -12,10 +12,10 @@ pages:
   script:
     - npm install
     - npm run build
-    - cp -a public/ dist/.
+    - cp -a public/. dists/
     # - npm run dev
   artifacts:
     paths:
-      - dist
+      - dists
   rules:
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
