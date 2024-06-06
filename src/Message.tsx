@@ -29,35 +29,6 @@ function Message({ msgObj, isOwner, userObj, isLoggedIn, counter, setCounter, se
     }
   })
   
-  // const onClick = () => {
-  //   const data = doc(dbservice, `num/${msgObj.id}`)
-  //   updateDoc(data, {round: 5});
-  //   const point = doc(dbservice, `members/${msgObj.creatorId}`)
-  //   const connectedPoint = doc(dbservice, `members/${msgObj.connectedId}`)
-  //   console.log(num)
-  //   console.log(value)
-  //   console.log(msgObj.point)
-  //   if (msgObj.text.choose == 1) {
-  //     updateDoc(point, {points: num-msgObj.point});
-  //     updateDoc(connectedPoint, {points: value+msgObj.point});
-  //   } else {
-  //     updateDoc(point, {points: num+msgObj.point});
-  //     updateDoc(connectedPoint, {points: value-msgObj.point});
-  //   }
-  // }
-  // const handleClose = () => {
-  //   setMove(false);
-  // };
-
-  // const support = () => {
-  //   if (isLoggedIn) { 
-  //     const data = doc(dbservice, `num/${msgObj.id}`)
-  //     updateDoc(data, {round: 2, connectedId: userObj.uid, connectedName: userObj.displayName});
-  //   } else {
-  //     setMove(true)
-  //   }
-  // }
-
   return (
     <div className='d-flex flex-column justify-content-center p-5'>
       <Link 
