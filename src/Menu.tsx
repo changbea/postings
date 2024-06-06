@@ -57,7 +57,6 @@ function Menu({ isLoggedIn, userObj, counter, setCounter }) {
                                 if(msg.round !== 5) {
                                     if (counter.indexOf(msg.id) === -1) {
                                         onCounting(msg)
-                                        
                                     }
                                     return(<Message key={msg.id} msgObj={msg} isOwner={msg.creatorId === userObj.uid} userObj={userObj} isLoggedIn={isLoggedIn} counter={counter} setCounter={setCounter}/>)
                                 }
@@ -73,11 +72,6 @@ function Menu({ isLoggedIn, userObj, counter, setCounter }) {
                                     if (msg.round !== 5) {
                                         if (counter.indexOf(msg.id) === -1) {
                                             onCounting(msg)
-                                            // setCounter([
-                                            //     ...counter,
-                                            //     msg.id
-                                            // ])
-                                            // console.log(counter)
                                         }
                                         return(<Message key={msg.id} msgObj={msg} isOwner={msg.creatorId === userObj.uid} userObj={userObj} isLoggedIn={isLoggedIn} counter={counter} setCounter={setCounter}/>)
                                     }
