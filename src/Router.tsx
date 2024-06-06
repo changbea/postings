@@ -14,7 +14,6 @@ function Router({ isLoggedIn, userObj, setUserObj, newAccount, setNewAccount }) 
     const [value, setValue] = useState(2);
     const [side, setSide] = useState('d-flex flex-column');
     const [sideNavigation, setSideNavigation] = useState('border border-primary rounded-top position-fixed bottom-0 start-0 end-0');
-    // const [values, setValues] = useState(1);
     const [check, setCheck] = useState(false)
 
     console.log(check)
