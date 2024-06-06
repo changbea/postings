@@ -11,7 +11,7 @@ import Btn from './Btn';
 function Specific() {
   const {state} = useLocation()
   const navigate = useNavigate()
-  // console.log(state)
+
   useEffect(() => {
     if (!state.isLoggedIn) {
       navigate('/posting/')

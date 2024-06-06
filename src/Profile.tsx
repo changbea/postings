@@ -93,7 +93,6 @@ function Profile({ isLoggedIn, userObj, setUserObj, value, setValue, side, setSi
         setNum(number)
     })
   }, [])
-  // console.log(num)
 
   return (  
     <div>
