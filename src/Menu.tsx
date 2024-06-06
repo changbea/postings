@@ -45,7 +45,7 @@ function Menu({ isLoggedIn, userObj, counter, setCounter }) {
   return (
     <div className='d-flex justify-content-center flex-column pb-5'>
         <div className='d-flex justify-content-center btn-group btn-group-toggle'>
-            <button className='btn btn-outline-primary active' onClick={() => onClick()}>내 상태</button>
+            <button className='btn btn-outline-primary active'>내 상태</button>
         </div>
         <div>
             <div className='d-flex p-5'>

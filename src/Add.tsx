@@ -7,11 +7,8 @@ import path from './assets/help_FILL0_wght400_GRAD0_opsz24.png';
 import Lotties from './Lotties'
 import Dialogs from './Dialogs'
 import Pickers from './Pickers'
-import './global.css'
 import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
-import { Buttoning } from "../@/components/Buttoning"
-
 
 function Add({ isLoggedIn, userObj, valuing }) {
   const [choose, setChoose] = useState(0);
@@ -43,7 +40,7 @@ function Add({ isLoggedIn, userObj, valuing }) {
       event.preventDefault()
       if(count !== 0 && counter !== 0 && from !== '' && to !== '') {
         if (from.gmt > to.gmt) {
-            alert('내용을 입력해 주세요')
+            alert('시간을 확인해주세요')
         } else {
             console.log(to.year-from.year)
             console.log(to.month-from.month)
@@ -158,9 +155,6 @@ function Add({ isLoggedIn, userObj, valuing }) {
   return (
     <div className='d-flex flex-column'>
         <div>
-           <Buttoning variant="outline">Buttons</Buttoning>
-        </div>
-        <div>
             {/* {choose === 0 && 
                 <div className='d-flex justify-content-center btn-group btn-group-toggle'>
                     <button className='btn btn-outline-primary' onClick={() => onClick(1)}>빌릴래요</button>
@@ -254,12 +248,8 @@ function Add({ isLoggedIn, userObj, valuing }) {
                     </div> */}
                     <div className='d-flex justify-content-center'>
                         <form id='selection' onSubmit={submit}>
-                            {/* <input className='btn btn-outline-primary' type='submit' value='등록하기'/> */}
-                            <Button variant="outlined" form='selection' type='submit'>
-                                등록하기
-                            </Button>
+                            <Button variant='outlined' form='selection' type='submit'>등록하기</Button>
                         </form>
-                        {/* <button className='btn btn-outline-primary' onClick={() => onClick(0)}>취소하기</button> */}
                     </div>
                 </div>
                 }
