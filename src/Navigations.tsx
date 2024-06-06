@@ -8,7 +8,7 @@ import Checklist from '@mui/icons-material/Checklist'
 import ChecklistRtl from '@mui/icons-material/ChecklistRtl'
 import BeachAccess from '@mui/icons-material/BeachAccess'
 import Badges from './Badges'
-// import './Navigations.css'
+import './Navigations.css'
 
 function Navigations({ counter, isLoggedIn, value, setValue, sideNavigation, setSideNavigation }) {
     return (

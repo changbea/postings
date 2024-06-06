@@ -6,6 +6,9 @@ import { auth, onSocialClick, dbservice, storage } from './serverbase'
 import { updateProfile, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import { collection, query, where, orderBy, addDoc, getDocs, doc, onSnapshot, updateDoc } from 'firebase/firestore';
 import styled from 'styled-components'
+import Navigation from './Navigation'
+import Navigations from './Navigations'
+import Avatars from './Avatars'
 
 const NavBtn = styled.button`
   border: dashed;
@@ -15,7 +18,7 @@ const SignBtn = styled.div`
   justify-content: center;
 `
 
-function Profile({ userObj }) {
+function Profile({ isLoggedIn, userObj, setUserObj, value, setValue, side, setSide, sideNavigation, setSideNavigation, check, setCheck, counter }) {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [newAccount, setNewAccount] = useState(false)
@@ -94,6 +97,16 @@ function Profile({ userObj }) {
 
   return (  
     <div>
+      <Navigation isLoggedIn={isLoggedIn} userObj={userObj} setUserObj={setUserObj} value={value} setValue={setValue} side={side} setSide={setSide} sideNavigation={sideNavigation} setSideNavigation={setSideNavigation} check={check} setCheck={setCheck}/>
+      <div className={side}>
+        <div onClick={() => setCheck(!check)}>
+          {userObj &&
+              <Avatars altName={userObj.displayName}/>
+          }
+          {!userObj &&
+              <Avatars />
+          }
+        </div>
       <div>제 유저 이름은 {userObj.displayName}</div>
       <form onSubmit={onSubmit}>
         <div className='d-flex justify-content-center'>
@@ -122,6 +135,8 @@ function Profile({ userObj }) {
             return(<Message key={msg.id} msgObj={msg} isOwner={msg.creatorId === userObj.uid} userObj={userObj}/>)
           }
         })}
+      </div>
+      <Navigations counter={counter} isLoggedIn={isLoggedIn} value={value} setValue={setValue} sideNavigation={sideNavigation} setSideNavigation={setSideNavigation} check={check} setCheck={setCheck}/>
       </div>
     </div>
   )

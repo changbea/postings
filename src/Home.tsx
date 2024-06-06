@@ -9,7 +9,7 @@ import Avatars from './Avatars'
 import { auth, onSocialClick, dbservice, storage } from './serverbase'
 import Navigation from './Navigation'
 
-function Home({ isLoggedIn, userObj, value, newAccount, setNewAccount, side, setSide, sideNavigation, setSideNavigation, setValue, check, setCheck, counter, setCounter}) {
+function Home({ isLoggedIn, userObj, setUserObj, value, newAccount, setNewAccount, side, setSide, sideNavigation, setSideNavigation, setValue, check, setCheck, counter, setCounter}) {
     const [num, setNum] = useState(null)
     // const noticeBorrowOnClick = (boolean) => setNoticeBorrow(boolean)
     // useEffect(() => {
@@ -36,7 +36,7 @@ function Home({ isLoggedIn, userObj, value, newAccount, setNewAccount, side, set
     
     return (
         <div>
-            <Navigation isLoggedIn={isLoggedIn} userObj={userObj} value={value} setValue={setValue} side={side} setSide={setSide} sideNavigation={sideNavigation} setSideNavigation={setSideNavigation} check={check} setCheck={setCheck}/>
+            <Navigation isLoggedIn={isLoggedIn} userObj={userObj} setUserObj={setUserObj} value={value} setValue={setValue} side={side} setSide={setSide} sideNavigation={sideNavigation} setSideNavigation={setSideNavigation} check={check} setCheck={setCheck}/>
         <div className={side}>
             <div onClick={checking}>
                 {userObj &&

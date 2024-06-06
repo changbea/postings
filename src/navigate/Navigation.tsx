@@ -7,7 +7,7 @@ import Mode from './Mode'
 import Avatars from './Avatars'
 
 const onLogOutClick = () => auth.signOut();
-function Navigation({ isLoggedIn, userObj, setUserObj, value, setValue, side, setSide, sideNavigation, setSideNavigation, check, setCheck }) {
+function Navigation({ isLoggedIn, userObj, setUserObj, setValue, side, setSide, setSideNavigation, check, setCheck }) {
   // const [open, setOpen] = useState(false);
   // const [check, setCheck] = useState(false)
   console.log(check)
