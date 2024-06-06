@@ -5,6 +5,9 @@ import Message from './Message'
 import Mode from './Mode'
 import Avatar from '@mui/material/Avatar';
 import { blue, blueGrey, deepPurple } from '@mui/material/colors';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
 
 function Menu({ isLoggedIn, userObj, counter, setCounter }) {
     const [choose, setChoose] = useState(true);

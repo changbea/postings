@@ -9,6 +9,9 @@ import FastRewindIcon from '@mui/icons-material/FastRewind';
 // import confirming from './confirming';
 // import Dialogs from './Dialogs';
 import { BrowserRouter, Routes, Route, useNavigate, Link } from 'react-router-dom'
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
 
 function Message({ msgObj, isOwner, userObj, isLoggedIn, counter, setCounter }) {
   const [num, setNum] = useState(null)

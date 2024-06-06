@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react'
 import { auth, onSocialClick, dbservice, storage } from './serverbase'
 import { collection, query, where, orderBy, addDoc, getDocs, doc, onSnapshot, deleteDoc, updateDoc } from 'firebase/firestore';
-import supporting from './supporting';
-import confirm from './confirm';
-import confirming from './confirming';
+// import supporting from './supporting';
+// import confirm from './confirm';
+// import confirming from './confirming';
 import Dialogs from './Dialogs';
 // import { BrowserRouter, Routes, Route, useNavigate, Link } from 'react-router-dom'
 import Button from '@mui/material/Button';
@@ -77,31 +77,29 @@ function Btn({ msgObj, isOwner, userObj, isLoggedIn, num, value, counter, setCou
     <div>
       {isOwner &&
         <div className='d-flex justify-content-center'>
-          {msgObj.round === 1 && <button className='d-flex justify-content-center btn btn-outline-primary' onClick={() => onClick('delete')}>지우기</button>}
+          {msgObj.round === 1 && <Button variant='outlined' onClick={() => onClick('delete')}>지우기</Button>}
           {msgObj.round === 2 &&
-            <button className='d-flex justify-content-center btn btn-outline-primary' onClick={() => {  
+            <Button variant='outlined' onClick={() => {  
               return (
                 onClick('confirm')
               )
-              // confirm({userObj, msgObj})
-            }}>승낙 메시지 확인</button>
+            }}>승낙 메시지 확인</Button>
           }
           {msgObj.round === 3 &&
             <div className='d-flex justify-content-center'>
-              {msgObj.text.choose == 1 && <button className='d-flex justify-content-center btn btn-outline-primary' onClick={() => {
+              {msgObj.text.choose == 1 && <Button variant='outlined' onClick={() => {
                 return (
                   onClick('returning')
                 )
-                // confirming({userObj, msgObj})
-                }}>반납하기</button>
+                }}>반납하기</Button>
               }
-              {msgObj.text.choose == 2 && <button className='d-flex justify-content-center btn btn-outline-primary'>{msgObj.connectedName} 님이 빌리는 중</button>}
+              {msgObj.text.choose == 2 && <Button variant='outlined'>{msgObj.connectedName} 님이 빌리는 중</Button>}
             </div>
           }
           {msgObj.round === 4 &&
             <div className='d-flex justify-content-center'>
-              {msgObj.text.choose == 1 && <button className='d-flex justify-content-center btn btn-outline-primary'>주인에게 확인 중</button>}
-              {msgObj.text.choose == 2 && <button className='d-flex justify-content-center btn btn-outline-primary' onClick={() => onClick('confirm return')}>반납 완료 확인</button>}
+              {msgObj.text.choose == 1 && <Button variant='outlined'>주인에게 확인 중</Button>}
+              {msgObj.text.choose == 2 && <Button variant='outlined' onClick={() => onClick('confirm return')}>반납 완료 확인</Button>}
             </div>
           }
         </div>
@@ -110,47 +108,45 @@ function Btn({ msgObj, isOwner, userObj, isLoggedIn, num, value, counter, setCou
         <div className='d-flex justify-content-center'>
           {msgObj.round === 1 &&
             <div className='d-flex justify-content-center'>
-              <button className='d-flex justify-content-center btn btn-outline-primary' onClick={() => {
+              <Button variant='outlined' onClick={() => {
                 return (
                   onClick('supporting')
                 )
-                // support(userObj, msgObj, isLoggedIn)
-              }}>승낙하기</button>
+              }}>승낙하기</Button>
               <Dialogs move={move} handleClose={handleClose}/>
             </div>
           }
           {msgObj.round === 2 &&
             <div className='d-flex flex-column justify-content-center'>
-              <button className='d-flex justify-content-center btn btn-outline-primary' onClick={() => {
+              <Button variant='outlined' onClick={() => {
                 // return (
                 //   onClick('stop supporting')
                 // )
                 // supporting({userObj, msgObj, isLoggedIn})
-              }}>승낙 메시지 전송 완료</button>
-              <button className='d-flex justify-content-center btn btn-outline-primary' onClick={() => {
+              }}>승낙 메시지 전송 완료</Button>
+              <Button variant='outlined' onClick={() => {
                 return (
                   onClick('stop supporting')
                 )
-                // supporting({userObj, msgObj, isLoggedIn})
-              }}>완료</button>
+              }}>완료</Button>
             </div>
           }
           {msgObj.round === 3 &&
             <div className='d-flex justify-content-center'>
-              {msgObj.text.choose == 1 && <button className='d-flex justify-content-center btn btn-outline-primary'>{msgObj.displayName} 님이 빌리는 중</button>}
-              {msgObj.text.choose == 2 && <button className='d-flex justify-content-center btn btn-outline-primary' onClick={() => {
+              {msgObj.text.choose == 1 && <Button variant='outlined'>{msgObj.displayName} 님이 빌리는 중</Button>}
+              {msgObj.text.choose == 2 && <Button variant='outlined' onClick={() => {
                 return (
                   onClick('returning')
                 )
                 // confirming({userObj, msgObj})
-                }}>반납하기</button>
+                }}>반납하기</Button>
               }
             </div>
           }
           {msgObj.round === 4 &&
             <div className='d-flex justify-content-center'>
-              {msgObj.text.choose == 1 && <button className='d-flex justify-content-center btn btn-outline-primary' onClick={() => onClick('confirm return')}>반납 완료 확인</button>}
-              {msgObj.text.choose == 2 && <button className='d-flex justify-content-center btn btn-outline-primary'>주인에게 확인 중</button>}
+              {msgObj.text.choose == 1 && <Button variant='outlined' className='d-flex justify-content-center btn btn-outline-primary' onClick={() => onClick('confirm return')}>반납 완료 확인</Button>}
+              {msgObj.text.choose == 2 && <Button variant='outlined' className='d-flex justify-content-center btn btn-outline-primary'>주인에게 확인 중</Button>}
             </div>
           }
         </div>  
