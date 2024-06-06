@@ -8,7 +8,7 @@ import Dialogs from './Dialogs';
 // import { BrowserRouter, Routes, Route, useNavigate, Link } from 'react-router-dom'
 import Button from '@mui/material/Button';
 
-function Btn({ msgObj, isOwner, userObj, isLoggedIn, num, value, counter, setCounter }) {
+function Btn({ msgObj, isOwner, userObj, isLoggedIn, num, value, setValue, counter, setCounter }) {
   // const [num, setNum] = useState(null)
   // const [value, setValue] = useState(null)
   const [move, setMove] = useState(false)
@@ -113,7 +113,7 @@ function Btn({ msgObj, isOwner, userObj, isLoggedIn, num, value, counter, setCou
                   onClick('supporting')
                 )
               }}>승낙하기</Button>
-              <Dialogs move={move} handleClose={handleClose}/>
+              <Dialogs move={move} handleClose={handleClose} setValue={setValue}/>
             </div>
           }
           {msgObj.round === 2 &&
