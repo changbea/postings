@@ -13,9 +13,9 @@ import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 
-function Message({ msgObj, isOwner, userObj, isLoggedIn, counter, setCounter }) {
+function Message({ msgObj, isOwner, userObj, isLoggedIn, counter, setCounter, setValue }) {
   const [num, setNum] = useState(null)
-  const [value, setValue] = useState(null)
+  const [points, setPoints] = useState(null)
   // const [move, setMove] = useState(false)
   
   // const onDeleteClick = () => {
@@ -34,7 +34,7 @@ function Message({ msgObj, isOwner, userObj, isLoggedIn, counter, setCounter }) 
     if (msgObj.connectedId !== null) {
       onSnapshot(query(doc(dbservice, `members/${msgObj.connectedId}`)), (snapshot) => {
         const element = snapshot.data().points
-        setValue(element)
+        setPoints(element)
       })
     }
   })
@@ -78,7 +78,7 @@ function Message({ msgObj, isOwner, userObj, isLoggedIn, counter, setCounter }) 
           isOwner: isOwner,
           isLoggedIn: isLoggedIn,
           num: num,
-          value: value,
+          value: points,
         }}
       >
         {msgObj.text.choose == 1 &&
@@ -150,7 +150,7 @@ function Message({ msgObj, isOwner, userObj, isLoggedIn, counter, setCounter }) 
           </div>  
         } */}
       </Link>
-      <Btn msgObj={msgObj} isOwner={isOwner} userObj={userObj} isLoggedIn={isLoggedIn} num={num} value={value} counter={counter} setCounter={setCounter} />
+      <Btn msgObj={msgObj} isOwner={isOwner} userObj={userObj} isLoggedIn={isLoggedIn} num={num} points={points} setValue={setValue} counter={counter} setCounter={setCounter} />
     </div>
   )
 }

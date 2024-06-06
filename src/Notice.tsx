@@ -6,7 +6,7 @@ import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 
-function Notice({ isLoggedIn, userObj, valuing }) {
+function Notice({ isLoggedIn, userObj, valuing, setValue }) {
   const [choose, setChoose] = useState(0);
   const [messages, setMessages] = useState([]);
 
@@ -46,14 +46,14 @@ function Notice({ isLoggedIn, userObj, valuing }) {
             {valuing === 1 && messages.map((msg) => {
                 if (msg.text.choose === 1 && msg.round === 1) {
                     return(
-                        <Message key={msg.id} msgObj={msg} isOwner={msg.creatorId === userObj.uid} userObj={userObj} isLoggedIn={isLoggedIn}/>
+                        <Message key={msg.id} msgObj={msg} isOwner={msg.creatorId === userObj.uid} userObj={userObj} isLoggedIn={isLoggedIn} setValue={setValue}/>
                     )
                 }
             })}
             {valuing === 4 && messages.map((msg) => {
                 if (msg.text.choose === 2 && msg.round === 1) {
                     return(
-                        <Message key={msg.id} msgObj={msg} isOwner={msg.creatorId === userObj.uid} userObj={userObj} isLoggedIn={isLoggedIn}/>
+                        <Message key={msg.id} msgObj={msg} isOwner={msg.creatorId === userObj.uid} userObj={userObj} isLoggedIn={isLoggedIn} setValue={setValue}/>
                     )
                 }
             })}

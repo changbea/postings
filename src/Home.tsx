@@ -54,27 +54,27 @@ function Home({ isLoggedIn, userObj, value, newAccount, setNewAccount, side, set
                     <Add isLoggedIn={isLoggedIn} userObj={userObj} valuing={value}/>
                 }
                 {value === 1 &&
-                    <Notice isLoggedIn={isLoggedIn} userObj={userObj} valuing={value}/>
+                    <Notice isLoggedIn={isLoggedIn} userObj={userObj} valuing={value} setValue={setValue}/>
                 }
                 {value === 2 && <Menu userObj={userObj}/>}
                 {value === 3 && 
                     <Add isLoggedIn={isLoggedIn} userObj={userObj} valuing={value}/>
                 }
                 {value === 4 &&
-                    <Notice isLoggedIn={isLoggedIn} userObj={userObj} valuing={value}/>
+                    <Notice isLoggedIn={isLoggedIn} userObj={userObj} valuing={value} setValue={setValue}/>
                 }
             </div>
             }
             {!isLoggedIn &&
                 <div>
                     {value === 0 &&
-                        <Notice isLoggedIn={isLoggedIn} userObj={userObj} valuing={1}/>
+                        <Notice isLoggedIn={isLoggedIn} userObj={userObj} valuing={1} setValue={setValue}/>
                     }
                     {value === 1 &&
                         <Auth newAccount={newAccount} setNewAccount={setNewAccount} userObj={userObj} valuing={value}/>
                     }
                     {value === 2 &&
-                        <Notice isLoggedIn={isLoggedIn} userObj={userObj} valuing={4}/>
+                        <Notice isLoggedIn={isLoggedIn} userObj={userObj} valuing={4} setValue={setValue}/>
                     }
                 </div>
             }

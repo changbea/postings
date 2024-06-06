@@ -8,7 +8,7 @@ import Dialogs from './Dialogs';
 // import { BrowserRouter, Routes, Route, useNavigate, Link } from 'react-router-dom'
 import Button from '@mui/material/Button';
 
-function Btn({ msgObj, isOwner, userObj, isLoggedIn, num, value, setValue, counter, setCounter }) {
+function Btn({ msgObj, isOwner, userObj, isLoggedIn, num, points, setValue, counter, setCounter }) {
   // const [num, setNum] = useState(null)
   // const [value, setValue] = useState(null)
   const [move, setMove] = useState(false)
@@ -35,10 +35,10 @@ function Btn({ msgObj, isOwner, userObj, isLoggedIn, num, value, setValue, count
 
       if (msgObj.text.choose == 1) {
         updateDoc(point, {points: num-msgObj.point});
-        updateDoc(connectedPoint, {points: value+msgObj.point});
+        updateDoc(connectedPoint, {points: points+msgObj.point});
       } else {
         updateDoc(point, {points: num+msgObj.point});
-        updateDoc(connectedPoint, {points: value-msgObj.point});
+        updateDoc(connectedPoint, {points: points-msgObj.point});
       }
     } else if (action === 'confirm') {
       // const data = doc(dbservice, `num/${msgObj.id}`)
