@@ -5,7 +5,9 @@ import { auth, onSocialClick, dbservice, storage } from './serverbase'
 import { updateProfile, getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import { collection, query, where, orderBy, addDoc, getDocs, doc, onSnapshot, deleteDoc, updateDoc, setDoc } from 'firebase/firestore';
 import Steppers from './Steppers'
-// import { Button } from './Buttoning'
+import './global.css'
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
 
 function Auth({ newAccount, setNewAccount }) {
   const [email, setEmail] = useState('')
@@ -16,7 +18,7 @@ function Auth({ newAccount, setNewAccount }) {
   const onSubmit = async (event) => {
     event.preventDefault()
     try {
-      let data;
+      let data: object;
       if (newAccount.account) {
         data = await createUserWithEmailAndPassword(auth, email, password)
         
@@ -89,34 +91,28 @@ function Auth({ newAccount, setNewAccount }) {
   })
   
   return (  
-    <div className='p-'>
-      <form className='border border-primary p-5' onSubmit={onSubmit}>
+    <div>
+      <form id='auth' className='border border-primary p-5' onSubmit={onSubmit}>
         <div>
-          <div className='d-flex'>
-            {/* <label className='form-label'>Email:</label>
-            <span>&emsp;</span> */}
-            <input className='form-control' placeholder='이메일' name='email' value={email} type='email' onChange={onChange} required/>
+          <div className='d-flex justify-content-center'>
+            <TextField label="이메일" value={email} onChange={onChange} variant="outlined" name='email' type='email' fullWidth required />
           </div>
-          <div className='d-flex'>
-            {/* <label className='form-label'>Password:</label>
-            <span>&emsp;</span> */}
-            <input className='form-control' placeholder='비밀번호' name='password' value={password} type='password' onChange={onChange} required/>
+          <div className='d-flex justify-content-center'>
+            <TextField label="비밀번호" value={password} onChange={onChange} variant="outlined" name='password' type='password' fullWidth required />
           </div>
         </div>
           <div>
-            {/* <input className='form-control' placeholder='유저 이름' name='profile' value={newDisplayName} type='profile' onChange={onChange} required/> */}
             <div className='d-flex justify-content-center'>
-              <input className='btn btn-outline-primary' value={newAccount.account ? '회원가입' : '로그인'} type='submit'/>
+              <Button variant='outlined' form='auth' type='submit'>로그인</Button>
               <span>{error}</span>
             </div>
           </div>
       </form>
       <div className='d-flex justify-content-center'>
-        {newAccount.account && <button className='btn btn-outline-primary' onClick={onSocialClick}>구글로 회원가입</button>}
-        {!newAccount.account && <button className='btn btn-outline-primary' onClick={onSocialClick}>구글로 로그인</button>}
-        <button onClick={toggleAccount} className='btn btn-outline-primary'>{newAccount.account ? '로그인' : '회원가입'}</button>
+        {newAccount.account && <Button variant='outlined' onClick={onSocialClick}>구글로 회원가입</Button>}
+        {!newAccount.account && <Button variant='outlined' onClick={onSocialClick}>구글로 로그인</Button>}
+        <Button variant='outlined' onClick={toggleAccount}>{newAccount.account ? '로그인' : '회원가입'}</Button>
       </div>
-      {/* <Button variant="outline">Button</Button> */}
     </div>
   )
 }

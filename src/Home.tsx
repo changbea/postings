@@ -71,7 +71,7 @@ function Home({ isLoggedIn, userObj, value, newAccount, setNewAccount, side, set
                         <Notice isLoggedIn={isLoggedIn} userObj={userObj} valuing={1}/>
                     }
                     {value === 1 &&
-                        <Auth newAccount={newAccount} userObj={userObj} valuing={value}/>
+                        <Auth newAccount={newAccount} setNewAccount={setNewAccount} userObj={userObj} valuing={value}/>
                     }
                     {value === 2 &&
                         <Notice isLoggedIn={isLoggedIn} userObj={userObj} valuing={4}/>

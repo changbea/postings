@@ -1,16 +1,15 @@
 import { useState, useEffect } from 'react'
 import { auth, onSocialClick, dbservice, storage } from './serverbase'
 import { collection, query, where, orderBy, addDoc, getDocs, doc, onSnapshot, deleteDoc, updateDoc } from 'firebase/firestore';
-// import '@mantine/dropzone/styles.css';
 import Rating from '@mui/material/Rating';
 import Popover from '@mui/material/Popover';
 import path from './assets/help_FILL0_wght400_GRAD0_opsz24.png';
-// import location from './location'
 import Lotties from './Lotties'
 import Dialogs from './Dialogs'
 import Pickers from './Pickers'
 import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
+
 
 function Add({ isLoggedIn, userObj, valuing }) {
   const [choose, setChoose] = useState(0);
@@ -19,10 +18,8 @@ function Add({ isLoggedIn, userObj, valuing }) {
   const [from, setFrom] = useState('');
   const [to, setTo] = useState('');
   const [move, setMove] = useState(false)
-//   const [value, setValue] = useState(0);
-//   const [anchorEl, setAnchorEl] = useState(null);
   const [process, setProcess] = useState(false)
-  const value = [0, 0]
+  const value: number[] = [0, 0]
 
   const roomList = ['one', 'two', 'three', 'four', 'focus']
   const changeRoom = (event) => {
@@ -42,7 +39,6 @@ function Add({ isLoggedIn, userObj, valuing }) {
 
   const submit = async (event) => {
       event.preventDefault()
-    //   console.log(from)
       if(count !== 0 && counter !== 0 && from !== '' && to !== '') {
         if (from.gmt > to.gmt) {
             alert('내용을 입력해 주세요')

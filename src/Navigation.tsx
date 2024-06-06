@@ -93,7 +93,10 @@ function Navigation({ isLoggedIn, userObj, setUserObj, value, setValue, side, se
     <ClickAwayListener onClickAway={(event) => checkbox(event)}>
       <div>
         {isLoggedIn && 
-        <nav className={navigation}  onPointerDown={(event) => add(event)} onPointerUp={(event) => remove(event)}>
+        <nav 
+          className={navigation} 
+          // onPointerDown={(event) => add(event)} onPointerUp={(event) => remove(event)}
+        >
           <h5 className='nav-padding'>
             <Mode/>
           </h5>
@@ -114,7 +117,10 @@ function Navigation({ isLoggedIn, userObj, setUserObj, value, setValue, side, se
         </nav>
         }
         {!isLoggedIn &&
-          <nav className={navigation} onPointerDown={(event) => add(event)} onPointerUp={(event) => remove(event)}>
+          <nav 
+            className={navigation} 
+            // onPointerDown={(event) => add(event)} onPointerUp={(event) => remove(event)}
+          >
             <h5 className='nav-padding'>
               <Mode/>
             </h5>
