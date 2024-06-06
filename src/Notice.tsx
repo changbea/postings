@@ -2,6 +2,9 @@ import { useState, useEffect } from 'react'
 import { collection, addDoc, getDocs, doc, onSnapshot, query, orderBy } from 'firebase/firestore';
 import { auth, onSocialClick, dbservice, storage } from './serverbase'
 import Message from './Message'
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
 
 function Notice({ isLoggedIn, userObj, valuing }) {
   const [choose, setChoose] = useState(0);
