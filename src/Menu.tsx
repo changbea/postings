@@ -37,31 +37,7 @@ function Menu({ isLoggedIn, userObj, counter, setCounter }) {
             msg.id
         ])
     }
-    // messages.map((msg) => {
-    //     if(msg.creatorId === userObj.uid) {
-    //         if(msg.round !== 5) {
-    //             if (counter.indexOf(msg.id) === -1) {
-    //                 setCounter([
-    //                     ...counter,
-    //                     msg.id
-    //                 ])
-    //                 console.log(counter)
-    //             }
-    //         }
-    //     }
-    // })
-    // messages.map((msg) => {
-    //     if(msg.connectedId === userObj.uid) {
-    //         if (msg.round !== 5) {
-    //             if (counter.indexOf(msg.id) === -1) {
-    //                 setCounter([
-    //                     ...counter,
-    //                     msg.id
-    //                 ])
-    //             }
-    //         }
-    //     }
-    // })
+    
   const onClick = () => {
     setChoose(true)
   }
@@ -81,11 +57,7 @@ function Menu({ isLoggedIn, userObj, counter, setCounter }) {
                                 if(msg.round !== 5) {
                                     if (counter.indexOf(msg.id) === -1) {
                                         onCounting(msg)
-                                        // setCounter([
-                                        //     ...counter,
-                                        //     msg.id
-                                        // ])
-                                        // console.log(counter)
+                                        
                                     }
                                     return(<Message key={msg.id} msgObj={msg} isOwner={msg.creatorId === userObj.uid} userObj={userObj} isLoggedIn={isLoggedIn} counter={counter} setCounter={setCounter}/>)
                                 }
