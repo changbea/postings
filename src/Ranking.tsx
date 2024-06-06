@@ -6,7 +6,6 @@ import Navigations from './Navigations'
 import Avatars from './Avatars'
 
 function Ranking({ isLoggedIn, userObj, setUserObj, value, setValue, side, setSide, sideNavigation, setSideNavigation, check, setCheck, counter }) {
-//   const [choose, setChoose] = useState(0);
   const [rank, setRank] = useState([])
 
   useEffect(() => {
