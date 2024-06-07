@@ -53,7 +53,7 @@ function Navigation({ isLoggedIn, userObj, setUserObj, setValue, side, setSide, 
       document.getElementsByClassName('naving')[0].style.left=`${event.pageX-offsetSide}px`
       document.getElementsByClassName('naving')[1].style.left=`${event.pageX-offsetSide}px`
     }
-    alert('moving')
+    // alert('moving')
   }
   
   // const checking = () => {
