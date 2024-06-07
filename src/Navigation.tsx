@@ -27,8 +27,8 @@ function Navigation({ isLoggedIn, userObj, setUserObj, setValue, side, setSide, 
   const add = (event) => {
     offsetX = event.clientX-event.target.getBoundingClientRect().left
     offsetSide = event.clientX-event.target.getBoundingClientRect().right
-    console.log(offsetX)
-    console.log(offsetSide)
+    // console.log(offsetX)
+    // console.log(offsetSide)
     event.target.addEventListener('pointermove', move)
     event.target.addEventListener('touchmove', move)
   }
