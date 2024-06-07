@@ -36,7 +36,7 @@ function Navigation({ isLoggedIn, userObj, setUserObj, setValue, side, setSide, 
   const remove = (event) => {
     event.target.removeEventListener('pointermove', move)
     event.target.removeEventListener('touchmove', move)
-    event.target.style.left = '-100%'
+    // event.target.style.left = '-100%'
     if (event.pageX-offsetX < 0) {
       event.target.style.left = '-100%'
     }
