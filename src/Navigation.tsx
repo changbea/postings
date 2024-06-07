@@ -4,7 +4,6 @@ import { auth, onSocialClick, dbservice, storage } from './serverbase'
 import { ClickAwayListener } from '@mui/base/ClickAwayListener';
 import './Navigation.css'
 import Mode from './Mode'
-import Avatars from './Avatars'
 
 const onLogOutClick = () => auth.signOut();
 function Navigation({ isLoggedIn, userObj, setUserObj, setValue, side, setSide, setSideNavigation, check, setCheck }) {
