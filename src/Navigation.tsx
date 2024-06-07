@@ -21,9 +21,10 @@ function Navigation({ isLoggedIn, userObj, setUserObj, setValue, side, setSide, 
   //     document.getElementsByClassName('navigation')[0].style.left = '-100%'
   //   }
   // };
-  
+
   let offsetX
   let offsetSide
+  
   const add = (event, action) => {
     offsetX = event.clientX-event.target.getBoundingClientRect().left
     offsetSide = event.clientX-event.target.getBoundingClientRect().right
