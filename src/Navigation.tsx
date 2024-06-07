@@ -57,7 +57,6 @@ function Navigation({ isLoggedIn, userObj, setUserObj, setValue, side, setSide, 
       document.getElementsByClassName('naving')[1].style.left=`${event.pageX-offsetSide}px`
     } 
   }
-
   // const checking = () => {
   //   setCheck(!check)
   // }
@@ -85,7 +84,7 @@ function Navigation({ isLoggedIn, userObj, setUserObj, setValue, side, setSide, 
     setValue(1)
     setUserObj(null)
   }
-  // let navControl
+
   let navigation
   if (check) {
     // navControl = 'navControlChecked'
