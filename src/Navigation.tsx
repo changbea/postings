@@ -55,6 +55,7 @@ function Navigation({ isLoggedIn, userObj, setUserObj, setValue, side, setSide, 
     }
     alert('moving')
   }
+  
   // const checking = () => {
   //   setCheck(!check)
   // }
