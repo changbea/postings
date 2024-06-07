@@ -31,7 +31,6 @@ function Navigation({ isLoggedIn, userObj, setUserObj, setValue, side, setSide, 
     console.log(offsetSide)
     event.target.addEventListener('pointermove', move)
     event.target.addEventListener('touchmove', move)
-    // console.log(offsetX)
   }
   const remove = (event) => {
     event.target.removeEventListener('pointermove', move)
@@ -50,7 +49,6 @@ function Navigation({ isLoggedIn, userObj, setUserObj, setValue, side, setSide, 
       document.getElementsByClassName('naving')[1].style.left=`${event.pageX-offsetSide}px`
     }
     // event.target.style.left = '-100%'
-
     // alert(event)
   }
   
