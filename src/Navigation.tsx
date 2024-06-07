@@ -165,10 +165,9 @@ function Navigation({ isLoggedIn, userObj, setUserObj, setValue, side, setSide, 
         {!isLoggedIn &&
           <nav 
             className={navigation} 
-            // onTouchStart={(event) => add(event, 'touch')}
             onTouchEnd={(event) => remove(event)}
-            onPointerDown={(event) => add(event, 'pointer')} 
-            onPointerUp={(event) => remove(event, 'pointer')}
+            onPointerDown={(event) => add(event)} 
+            onPointerUp={(event) => remove(event)}
           >
             <h5 className='nav-padding'>
               <Mode/>
