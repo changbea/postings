@@ -33,7 +33,8 @@ function Navigation({ isLoggedIn, userObj, setUserObj, setValue, side, setSide, 
     {action === 'touch' &&
       event.target.addEventListener('touchmove', move)
     }
-    console.log(offsetX)
+    // console.log(offsetX)
+    alert(offsetX)
   }
   const remove = (event, action) => {
     {action === 'pointer' &&
@@ -54,7 +55,7 @@ function Navigation({ isLoggedIn, userObj, setUserObj, setValue, side, setSide, 
       document.getElementsByClassName('naving')[0].style.left=`${event.pageX-offsetSide}px`
       document.getElementsByClassName('naving')[1].style.left=`${event.pageX-offsetSide}px`
     }
-    // alert('moving')
+    alert(event)
   }
   
   const logOut = (event) => {
