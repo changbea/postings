@@ -24,26 +24,14 @@ function Navigation({ isLoggedIn, userObj, setUserObj, setValue, side, setSide, 
   
   let offsetX
   let offsetSide
-  const add = (event, action) => {
+  const add = (event) => {
     offsetX = event.clientX-event.target.getBoundingClientRect().left
     offsetSide = event.clientX-event.target.getBoundingClientRect().right
-    {action === 'pointer' && 
-      event.target.addEventListener('pointermove', move)
-    }
-    {action === 'touch' &&
-      event.target.addEventListener('touchmove', move)
-    }
-    
+    event.target.addEventListener('pointermove', move)
     // console.log(offsetX)
-    alert(offsetX)
   }
-  const remove = (event, action) => {
-    {action === 'pointer' &&
-      event.target.removeEventListener('pointermove', move)
-    } 
-    {action === 'touch' && 
-      event.target.removeEventListener('touchmove', move)
-    }
+  const remove = (event) => {
+    event.target.removeEventListener('pointermove', move)
     if (event.pageX-offsetX < 0) {
       event.target.style.left = '-100%'
     }
@@ -56,7 +44,7 @@ function Navigation({ isLoggedIn, userObj, setUserObj, setValue, side, setSide, 
       document.getElementsByClassName('naving')[0].style.left=`${event.pageX-offsetSide}px`
       document.getElementsByClassName('naving')[1].style.left=`${event.pageX-offsetSide}px`
     }
-    alert(event)
+    // alert(event)
   }
   
   const logOut = (event) => {
@@ -77,16 +65,75 @@ function Navigation({ isLoggedIn, userObj, setUserObj, setValue, side, setSide, 
     setSideNavigation('border border-primary rounded-top position-fixed bottom-0 start-0 end-0')
   }
 
+  var active = false;
+    var currentX;
+    var currentY;
+    var initialX;
+    var initialY;
+    var xOffset = 0;
+    var yOffset = 0;
+
+  
+    function dragStart(e) {
+      if (e.type === "touchstart") {
+        initialX = e.touches[0].clientX - xOffset;
+        initialY = e.touches[0].clientY - yOffset;
+      } else {
+        initialX = e.clientX - xOffset;
+        initialY = e.clientY - yOffset;
+      }
+
+      // if (e.target === dragItem) {
+      //   active = true;
+      // }
+    }
+
+    function dragEnd(e) {
+      initialX = currentX;
+      initialY = currentY;
+      console.log(e)
+      if (e.pageX-offsetX < 0) {
+        e.target.style.left = '-100%'
+      }
+      checkbox(event)
+    }
+
+    function drag(e) {
+        e.preventDefault();
+      
+        if (e.type === "touchmove") {
+          currentX = e.touches[0].clientX - initialX;
+          currentY = e.touches[0].clientY - initialY;
+        } else {
+          currentX = e.clientX - initialX;
+          currentY = e.clientY - initialY;
+        }
+
+        xOffset = currentX;
+        yOffset = currentY;
+
+        // setTranslate(currentX, currentY, dragItem);
+        const el = e.target
+          el.style.left = `${e.pageX-xOffset}px`
+          console.log(document.getElementsByClassName('naving')[0])
+          document.getElementsByClassName('naving')[0].style.left=`${e.pageX-xOffset}px`
+          document.getElementsByClassName('naving')[1].style.left=`${e.pageX-xOffset}px`
+    }
+
+    function setTranslate(xPos, yPos, el) {
+      el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
+    }
+
   return(
     <ClickAwayListener onClickAway={(event) => checkbox(event)}>
       <div>
         {isLoggedIn && 
         <nav 
           className={navigation}
-          onTouchStart={(event) => add(event, 'touch')}
-          onTouchEnd={(event) => remove(event, 'touch')}
-          onPointerDown={(event) => add(event, 'pointer')} 
-          onPointerUp={(event) => remove(event, 'pointer')}
+          // onTouchStart={(event) => add(event, 'touch')}
+          // onTouchEnd={(event) => remove(event, 'touch')}
+          onPointerDown={(event) => add(event)} 
+          onPointerUp={(event) => remove(event)}
         >
           <h5 className='nav-padding'>
             <Mode/>
@@ -110,10 +157,10 @@ function Navigation({ isLoggedIn, userObj, setUserObj, setValue, side, setSide, 
         {!isLoggedIn &&
           <nav 
             className={navigation} 
-            onTouchStart={(event) => add(event, 'touch')}
-            onTouchEnd={(event) => remove(event, 'touch')}
-            onPointerDown={(event) => add(event, 'pointer')} 
-            onPointerUp={(event) => remove(event, 'pointer')}
+            // onTouchStart={(event) => add(event, 'touch')}
+            // onTouchEnd={(event) => remove(event, 'touch')}
+            // onPointerDown={(event) => add(event, 'pointer')} 
+            // onPointerUp={(event) => remove(event, 'pointer')}
           >
             <h5 className='nav-padding'>
               <Mode/>
