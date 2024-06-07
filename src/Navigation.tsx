@@ -49,6 +49,8 @@ function Navigation({ isLoggedIn, userObj, setUserObj, setValue, side, setSide, 
       document.getElementsByClassName('naving')[0].style.left=`${event.pageX-offsetSide}px`
       document.getElementsByClassName('naving')[1].style.left=`${event.pageX-offsetSide}px`
     }
+    // event.target.style.left = '-100%'
+
     // alert(event)
   }
   
@@ -137,6 +139,7 @@ function Navigation({ isLoggedIn, userObj, setUserObj, setValue, side, setSide, 
           className={navigation}
           // onTouchStart={(event) => add(event, 'touch')}
           // onTouchEnd={(event) => remove(event, 'touch')}
+          onTouchMove={(event) => add(event)}
           onPointerDown={(event) => add(event)} 
           onPointerUp={(event) => remove(event)}
         >
