@@ -21,6 +21,7 @@ function Navigation({ isLoggedIn, userObj, setUserObj, setValue, side, setSide, 
   //     document.getElementsByClassName('navigation')[0].style.left = '-100%'
   //   }
   // };
+  
   let offsetX
   let offsetSide
   const add = (event, action) => {
