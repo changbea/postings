@@ -37,8 +37,8 @@ function Navigation({ isLoggedIn, userObj, setUserObj, setValue, side, setSide, 
     event.target.removeEventListener('pointermove', move)
     event.target.removeEventListener('touchmove', move)
     event.target.style.left = '-100%'
-    if (event.pageX-offsetX < 0) {
-    }
+    // if (event.pageX-offsetX < 0) {
+    // }
     checkbox(event)
   }
   const move = (event) => {
