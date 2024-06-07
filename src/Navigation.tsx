@@ -8,9 +8,6 @@ import Avatars from './Avatars'
 
 const onLogOutClick = () => auth.signOut();
 function Navigation({ isLoggedIn, userObj, setUserObj, setValue, side, setSide, setSideNavigation, check, setCheck }) {
-  // const [open, setOpen] = useState(false);
-  // const [check, setCheck] = useState(false)
-  console.log(check)
   const checkbox = (event) => {
     setCheck(false)
     // document.getElementById('nav-control').checked = false
@@ -55,7 +52,8 @@ function Navigation({ isLoggedIn, userObj, setUserObj, setValue, side, setSide, 
       el.style.left = `${event.pageX-offsetX}px`
       document.getElementsByClassName('naving')[0].style.left=`${event.pageX-offsetSide}px`
       document.getElementsByClassName('naving')[1].style.left=`${event.pageX-offsetSide}px`
-    } 
+    }
+    alert('moving')
   }
   // const checking = () => {
   //   setCheck(!check)
