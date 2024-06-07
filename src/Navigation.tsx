@@ -12,7 +12,6 @@ function Navigation({ isLoggedIn, userObj, setUserObj, setValue, side, setSide, 
     // document.getElementById('nav-control').checked = false
     // document.getElementsByClassName('navigation')[0].style.left = '-100%'
   }
-
   // const handleClick = (event) => {
   //   if(document.getElementsByClassName('navigation')[0].style.left === '-100%') {
   //     document.getElementsByClassName('navigation')[0].style.left = ''
