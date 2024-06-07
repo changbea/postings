@@ -77,6 +77,7 @@ function Navigation({ isLoggedIn, userObj, setUserObj, setValue, side, setSide, 
   //     return ('navigation')
   //   }
   // }
+  
   const logOut = (event) => {
     onLogOutClick()
     checkbox(event)
