@@ -12,6 +12,7 @@ function Navigation({ isLoggedIn, userObj, setUserObj, setValue, side, setSide, 
     // document.getElementById('nav-control').checked = false
     // document.getElementsByClassName('navigation')[0].style.left = '-100%'
   }
+
   // const handleClick = (event) => {
   //   if(document.getElementsByClassName('navigation')[0].style.left === '-100%') {
   //     document.getElementsByClassName('navigation')[0].style.left = ''
@@ -20,6 +21,7 @@ function Navigation({ isLoggedIn, userObj, setUserObj, setValue, side, setSide, 
   //     document.getElementsByClassName('navigation')[0].style.left = '-100%'
   //   }
   // };
+  
   let offsetX
   let offsetSide
   const add = (event, action) => {
@@ -31,6 +33,7 @@ function Navigation({ isLoggedIn, userObj, setUserObj, setValue, side, setSide, 
     {action === 'touch' &&
       event.target.addEventListener('touchmove', move)
     }
+    
     // console.log(offsetX)
     alert(offsetX)
   }
