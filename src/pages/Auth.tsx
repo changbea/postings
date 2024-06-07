@@ -6,7 +6,6 @@ import { updateProfile, getAuth, createUserWithEmailAndPassword, signInWithEmail
 import { collection, query, where, orderBy, addDoc, getDocs, doc, onSnapshot, deleteDoc, updateDoc, setDoc } from 'firebase/firestore';
 import Steppers from './Steppers'
 import './global.css'
-import { css } from '@emotion/css'
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 
@@ -94,12 +93,7 @@ function Auth({ newAccount, setNewAccount }) {
   return (  
     <div>
       <form id='auth' className='border border-primary p-5' onSubmit={onSubmit}>
-        <div className={css`
-          // padding: 5px;
-          // display: flex;
-          // flex-direction: column;
-        `
-        }>
+        <div>
           <div className='d-flex justify-content-center'>
             <TextField label="이메일" value={email} onChange={onChange} variant="outlined" name='email' type='email' fullWidth required />
           </div>
