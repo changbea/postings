@@ -26,16 +26,24 @@ function Navigation({ isLoggedIn, userObj, setUserObj, setValue, side, setSide, 
   // };
   let offsetX
   let offsetSide
-  const add = (event) => {
+  const add = (event, action) => {
     offsetX = event.clientX-event.target.getBoundingClientRect().left
     offsetSide = event.clientX-event.target.getBoundingClientRect().right
-    event.target.addEventListener('pointermove', move)
-    event.target.addEventListener('touchmove', move)
+    {action === 'pointer' && 
+      event.target.addEventListener('pointermove', move)
+    }
+    {action === 'touch' &&
+      event.target.addEventListener('touchmove', move)
+    }
     console.log(offsetX)
   }
-  const remove = (event) => {
-    event.target.removeEventListener('pointermove', move)
-    event.target.removeEventListener('touchmove', move)
+  const remove = (event, action) => {
+    {action === 'pointer' &&
+      event.target.removeEventListener('pointermove', move)
+    } 
+    {action === 'touch' && 
+      event.target.removeEventListener('touchmove', move)
+    }
     if (event.pageX-offsetX < 0) {
       event.target.style.left = '-100%'
     }
@@ -97,9 +105,10 @@ function Navigation({ isLoggedIn, userObj, setUserObj, setValue, side, setSide, 
         {isLoggedIn && 
         <nav 
           className={navigation}
-          onTouchStart={(event) => add(event)}
-          onTouchEnd={(event) => remove(event)}
-          onPointerDown={(event) => add(event)} onPointerUp={(event) => remove(event)}
+          onTouchStart={(event) => add(event, 'touch')}
+          onTouchEnd={(event) => remove(event, 'touch')}
+          onPointerDown={(event) => add(event, 'pointer')} 
+          onPointerUp={(event) => remove(event, 'pointer')}
         >
           <h5 className='nav-padding'>
             <Mode/>
@@ -125,7 +134,8 @@ function Navigation({ isLoggedIn, userObj, setUserObj, setValue, side, setSide, 
             className={navigation} 
             onTouchStart={(event) => add(event)}
             onTouchEnd={(event) => remove(event)}
-            onPointerDown={(event) => add(event)} onPointerUp={(event) => remove(event)}
+            onPointerDown={(event) => add(event)} 
+            onPointerUp={(event) => remove(event)}
           >
             <h5 className='nav-padding'>
               <Mode/>
