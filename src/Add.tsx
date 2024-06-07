@@ -11,7 +11,7 @@ import Button from '@mui/material/Button';
 // import ButtonGroup from '@mui/material/ButtonGroup';
 
 function Add({ isLoggedIn, userObj, valuing }) {
-  const [choose, setChoose] = useState(0);
+  const [choose, setChoose] = useState<number>(0);
   const [count, setCount] = useState(0);
   const [counter, setCounter] = useState(0);
   const [from, setFrom] = useState('');

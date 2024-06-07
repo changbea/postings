@@ -14,7 +14,7 @@ function Auth({ newAccount, setNewAccount }) {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [newDisplayName, setNewDisplayName] = useState([])
-  const [error, setError] = useState('')
+  const [error, setError] = useState<string>('')
   
   const onSubmit = async (event) => {
     event.preventDefault()

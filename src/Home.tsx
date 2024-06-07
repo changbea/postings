@@ -37,50 +37,50 @@ function Home({ isLoggedIn, userObj, setUserObj, value, newAccount, setNewAccoun
     return (
         <div>
             <Navigation isLoggedIn={isLoggedIn} userObj={userObj} setUserObj={setUserObj} value={value} setValue={setValue} side={side} setSide={setSide} sideNavigation={sideNavigation} setSideNavigation={setSideNavigation} check={check} setCheck={setCheck}/>
-        <div className={side}>
-            <div onClick={checking}>
-                {userObj &&
-                    <Avatars altName={userObj.displayName}/>
-                }
-                {!userObj &&
-                    <Avatars />
-                }
-            </div>
-            {isLoggedIn && 
-            <div className='d-flex flex-column'>
-                <div className='d-flex justify-content-center'>좋은 날씨네요 {userObj.displayName} 님</div>
-                {isLoggedIn && <div className='d-flex justify-content-center'>내 포인트: {num}</div>}
-                {value === 0 && 
-                    <Add isLoggedIn={isLoggedIn} userObj={userObj} valuing={value}/>
-                }
-                {value === 1 &&
-                    <Notice isLoggedIn={isLoggedIn} userObj={userObj} valuing={value} setValue={setValue}/>
-                }
-                {value === 2 && <Menu userObj={userObj}/>}
-                {value === 3 && 
-                    <Add isLoggedIn={isLoggedIn} userObj={userObj} valuing={value}/>
-                }
-                {value === 4 &&
-                    <Notice isLoggedIn={isLoggedIn} userObj={userObj} valuing={value} setValue={setValue}/>
-                }
-            </div>
-            }
-            {!isLoggedIn &&
-                <div>
-                    {value === 0 &&
-                        <Notice isLoggedIn={isLoggedIn} userObj={userObj} valuing={1} setValue={setValue}/>
+            <div className={side}>
+                <div onClick={checking}>
+                    {userObj &&
+                        <Avatars altName={userObj.displayName}/>
                     }
-                    {value === 1 &&
-                        <Auth newAccount={newAccount} setNewAccount={setNewAccount} userObj={userObj} valuing={value}/>
-                    }
-                    {value === 2 &&
-                        <Notice isLoggedIn={isLoggedIn} userObj={userObj} valuing={4} setValue={setValue}/>
+                    {!userObj &&
+                        <Avatars />
                     }
                 </div>
-            }
+                {isLoggedIn && 
+                    <div className='d-flex flex-column'>
+                        <div className='d-flex justify-content-center'>좋은 날씨네요 {userObj.displayName} 님</div>
+                        {isLoggedIn && <div className='d-flex justify-content-center'>내 포인트: {num}</div>}
+                        {value === 0 && 
+                            <Add isLoggedIn={isLoggedIn} userObj={userObj} valuing={value}/>
+                        }
+                        {value === 1 &&
+                            <Notice isLoggedIn={isLoggedIn} userObj={userObj} valuing={value} setValue={setValue}/>
+                        }
+                        {value === 2 && <Menu userObj={userObj}/>}
+                        {value === 3 && 
+                            <Add isLoggedIn={isLoggedIn} userObj={userObj} valuing={value}/>
+                        }
+                        {value === 4 &&
+                            <Notice isLoggedIn={isLoggedIn} userObj={userObj} valuing={value} setValue={setValue}/>
+                        }
+                    </div>
+                }
+                {!isLoggedIn &&
+                    <div>
+                        {value === 0 &&
+                            <Notice isLoggedIn={isLoggedIn} userObj={userObj} valuing={1} setValue={setValue}/>
+                        }
+                        {value === 1 &&
+                            <Auth newAccount={newAccount} setNewAccount={setNewAccount} userObj={userObj} valuing={value}/>
+                        }
+                        {value === 2 &&
+                            <Notice isLoggedIn={isLoggedIn} userObj={userObj} valuing={4} setValue={setValue}/>
+                        }
+                    </div>
+                }
+            </div>
+            <Navigations counter={counter} isLoggedIn={isLoggedIn} value={value} setValue={setValue} sideNavigation={sideNavigation} setSideNavigation={setSideNavigation} check={check} setCheck={setCheck}/>
         </div>
-        <Navigations counter={counter} isLoggedIn={isLoggedIn} value={value} setValue={setValue} sideNavigation={sideNavigation} setSideNavigation={setSideNavigation} check={check} setCheck={setCheck}/>
-                </div>
 
     )
 }

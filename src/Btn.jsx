@@ -11,7 +11,7 @@ import Button from '@mui/material/Button';
 function Btn({ msgObj, isOwner, userObj, isLoggedIn, num, points, setValue, counter, setCounter }) {
   // const [num, setNum] = useState(null)
   // const [value, setValue] = useState(null)
-  const [move, setMove] = useState(false)
+  const [move, setMove] = useState<boolean>(false)
   
   const onDeleteClick = () => {
     const data = doc(dbservice, `num/${msgObj.id}`)

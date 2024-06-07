@@ -6,8 +6,8 @@ import Lotties from './Lotties'
 import { auth } from './serverbase'
 
 function App() {
-  const [count, setCount] = useState(0)
-  const [init, setInit] = useState(false)
+  const [count, setCount] = useState<number>(0)
+  const [init, setInit] = useState<boolean>(false)
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [userObj, setUserObj] = useState(null)
   const [newAccount, setNewAccount] = useState({account: false, round: 0})
