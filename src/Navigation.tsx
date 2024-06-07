@@ -13,7 +13,7 @@ function Navigation({ isLoggedIn, userObj, setUserObj, setValue, side, setSide, 
     // document.getElementById('nav-control').checked = false
     // document.getElementsByClassName('navigation')[0].style.left = '-100%'
   }
-  
+
   // const handleClick = (event) => {
   //   if(document.getElementsByClassName('navigation')[0].style.left === '-100%') {
   //     document.getElementsByClassName('navigation')[0].style.left = ''
@@ -59,28 +59,6 @@ function Navigation({ isLoggedIn, userObj, setUserObj, setValue, side, setSide, 
     // alert('moving')
   }
   
-  // const checking = () => {
-  //   setCheck(!check)
-  // }
-  // const navControl = () => {
-  // if (check) {
-  //     return (
-  //       'navControlCheck'
-  //     )
-  //   } else {
-  //     return (
-  //       'navControl'
-  //     )
-  //   }
-  // }
-  // const navigation = () => {
-  //   if (check) {
-  //     return ('navigationCheck')
-  //   } else {
-  //     return ('navigation')
-  //   }
-  // }
-
   const logOut = (event) => {
     onLogOutClick()
     checkbox(event)
