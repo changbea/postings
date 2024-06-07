@@ -138,8 +138,9 @@ function Navigation({ isLoggedIn, userObj, setUserObj, setValue, side, setSide, 
         <nav 
           className={navigation}
           // onTouchStart={(event) => add(event, 'touch')}
-          // onTouchEnd={(event) => remove(event, 'touch')}
+          onTouchEnd={(event) => remove(event)}
           onTouchMove={(event) => add(event)}
+          // onPointerMove={(event) => add(event)}
           onPointerDown={(event) => add(event)} 
           onPointerUp={(event) => remove(event)}
         >
