@@ -77,7 +77,7 @@ function Navigation({ isLoggedIn, userObj, setUserObj, setValue, side, setSide, 
   //     return ('navigation')
   //   }
   // }
-  
+
   const logOut = (event) => {
     onLogOutClick()
     checkbox(event)
@@ -87,12 +87,10 @@ function Navigation({ isLoggedIn, userObj, setUserObj, setValue, side, setSide, 
 
   let navigation
   if (check) {
-    // navControl = 'navControlChecked'
     navigation = 'navigationChecked'
     setSide('naving d-flex flex-column')
     setSideNavigation('naving border border-primary rounded-top position-fixed bottom-0 end-0')
   } else {
-    // navControl = 'navControl'
     navigation = 'navigation'
     setSide('d-flex flex-column')
     setSideNavigation('border border-primary rounded-top position-fixed bottom-0 start-0 end-0')
