@@ -27,41 +27,37 @@ const onClick = (choose, setChoose) => {
         })
     }
     localStorage.setItem("theme", theme);
-  
 }
 
-const Button = ({colorMode, choose, setChoose}) => {
+const Button = ({colorMode, choose, setChoose, checkbox}) => {
     const theme = useTheme();
 
     return (
         <div className='mode'>
             {theme.palette.choose} mode
-            <IconButton color="inherit" onClick={() => onClick(choose, setChoose)}>
+            <IconButton color="inherit" onClick={() => onClick(choose, setChoose, checkbox)}>
                 {theme.palette.choose === 'light' ? <Brightness4Icon /> : <Brightness7Icon />}                    
             </IconButton>
         </div>
     )
 }
 
-
-function Mode() {
+function Mode(setCheck) {
     const [choose, setChoose] = useState('light');
-
     const colorMode = {
         toggleColorMode: choose,
     }
-    
     const theme = createTheme({
         palette: {
           choose,
         },
-      })
+    })
     
-      console.log(colorMode.toggleColorMode)
+    console.log(setCheck)
     return (
         <ThemeProvider theme={theme}>
-            <Button colorMode={colorMode} choose={choose} setChoose={setChoose}/>
-        </ThemeProvider>  
+            <Button colorMode={colorMode} choose={choose} setChoose={setChoose} setCheck={setCheck}/>
+        </ThemeProvider>
     )
 }
 

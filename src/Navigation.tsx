@@ -6,12 +6,12 @@ import './Navigation.css'
 import Mode from './Mode'
 
 const onLogOutClick = () => auth.signOut();
+function checkbox(setCheck) {
+  setCheck(false)
+  // document.getElementById('nav-control').checked = false
+  // document.getElementsByClassName('navigation')[0].style.left = '-100%'
+}
 function Navigation({ isLoggedIn, userObj, setUserObj, setValue, side, setSide, setSideNavigation, check, setCheck }) {
-  const checkbox = (event) => {
-    setCheck(false)
-    // document.getElementById('nav-control').checked = false
-    // document.getElementsByClassName('navigation')[0].style.left = '-100%'
-  }
 
   // const handleClick = (event) => {
   //   if(document.getElementsByClassName('navigation')[0].style.left === '-100%') {
@@ -39,7 +39,7 @@ function Navigation({ isLoggedIn, userObj, setUserObj, setValue, side, setSide, 
     if (event.pageX-offsetX < 0) {
       event.target.style.left = '-100%'
     }
-    checkbox(event)
+    checkbox(setCheck)
   }
   const move = (event) => {
     const el = event.target
@@ -53,9 +53,9 @@ function Navigation({ isLoggedIn, userObj, setUserObj, setValue, side, setSide, 
     // alert(event)
   }
   
-  const logOut = (event) => {
+  const logOut = () => {
     onLogOutClick()
-    checkbox(event)
+    checkbox(setCheck)
     setValue(1)
     setUserObj(null)
   }
@@ -101,7 +101,7 @@ function Navigation({ isLoggedIn, userObj, setUserObj, setValue, side, setSide, 
       if (e.pageX-offsetX < 0) {
         e.target.style.left = '-100%'
       }
-      checkbox(event)
+      checkbox(setCheck)
     }
 
     function drag(e) {
@@ -131,32 +131,32 @@ function Navigation({ isLoggedIn, userObj, setUserObj, setValue, side, setSide, 
     }
 
   return(
-    <ClickAwayListener onClickAway={(event) => checkbox(event)}>
+    <ClickAwayListener onClickAway={() => checkbox(setCheck)}>
       <div>
         {isLoggedIn && 
         <nav 
           className={navigation}
           // onTouchStart={(event) => add(event, 'touch')}
-          onTouchEnd={(event) => remove(event)}
+          // onTouchEnd={(event) => remove(event)}
           // onTouchMove={(event) => add(event)}
-          onPointerDown={(event) => add(event)} 
-          onPointerUp={(event) => remove(event)}
+          // onPointerDown={(event) => add(event)} 
+          // onPointerUp={(event) => remove(event)}
         >
           <h5 className='nav-padding'>
-            <Mode/>
+            <Mode setCheck={setCheck}/>
           </h5>
           <h1 className='nav-padding'>
-            <Link to='/postings/' onClick={(event) => checkbox(event)}>메인 페이지</Link>
+            <Link to='/postings/' onClick={() => checkbox(setCheck)}>메인 페이지</Link>
           </h1>
           <h1>
-            <Link to='/postings/profile' onClick={(event) => checkbox(event)}>{userObj.displayName}의 프로필</Link>
+            <Link to='/postings/profile' onClick={() => checkbox(setCheck)}>{userObj.displayName}의 프로필</Link>
           </h1>
           <h1>
-            <Link to='/postings/ranking' onClick={(event) => checkbox(event)}>유저 랭킹</Link>
+            <Link to='/postings/ranking' onClick={() => checkbox(setCheck)}>유저 랭킹</Link>
           </h1>
           <h1>
             <Link to="/postings/" onClick={(event) => {
-              logOut(event)
+              logOut()
             }}>로그아웃</Link>
           </h1>
         </nav>
@@ -164,30 +164,30 @@ function Navigation({ isLoggedIn, userObj, setUserObj, setValue, side, setSide, 
         {!isLoggedIn &&
           <nav 
             className={navigation} 
-            onTouchEnd={(event) => remove(event)}
-            onPointerDown={(event) => add(event)} 
-            onPointerUp={(event) => remove(event)}
+            // onTouchEnd={(event) => remove(event)}
+            // onPointerDown={(event) => add(event)} 
+            // onPointerUp={(event) => remove(event)}
           >
             <h5 className='nav-padding'>
               <Mode/>
             </h5>
             <h1 className='nav-padding'>
-              <Link to='/postings/' onClick={(event) => checkbox(event)}>메인 페이지</Link>
+              <Link to='/postings/' onClick={() => checkbox(setCheck)}>메인 페이지</Link>
             </h1>
             <h1>
-              <Link to='/postings/' onClick={(event) => {
-                checkbox(event)
+              <Link to='/postings/' onClick={() => {
+                checkbox(setCheck)
                 setValue(1)
               }}>로그인/회원가입</Link>
             </h1>
             <h1>
-              <Link to="/postings/contact" onClick={(event) => checkbox(event)}>신고하기</Link>
+              <Link to="/postings/contact" onClick={() => checkbox(setCheck)}>신고하기</Link>
             </h1>
           </nav>
         }
-        </div>
-      </ClickAwayListener>
-    )
+      </div>
+    </ClickAwayListener>
+  )
 }
 
 export default Navigation

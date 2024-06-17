@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useContext, createContext } from 'react'
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
 import Router from './Router'
@@ -11,6 +11,21 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [userObj, setUserObj] = useState(null)
   const [newAccount, setNewAccount] = useState({account: false, round: 0})
+  const userContext = createContext()
+  const user = [
+    <userContext.Provider value="Reed">
+      <User />
+    </userContext.Provider>
+  ]
+  function User() {
+    return (
+      <userContext.Consumer>
+        {value => <h1>{value}</h1>} 
+        {/* prints: Reed */}
+      </userContext.Consumer>
+    )
+  }
+  
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
       if (user) {

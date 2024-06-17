@@ -10,7 +10,7 @@ import BeachAccess from '@mui/icons-material/BeachAccess'
 import Badges from './Badges'
 import './Navigations.css'
 
-function Navigations({ counter, isLoggedIn, value, setValue, sideNavigation, setSideNavigation }) {
+function Navigations({ counter, isLoggedIn, value, setValue, sideNavigation, setSideNavigation, counting, setCounting }) {
     return (
         <div>
             {isLoggedIn &&
@@ -24,7 +24,7 @@ function Navigations({ counter, isLoggedIn, value, setValue, sideNavigation, set
                 >
                     <BottomNavigationAction label={<Link className='btns' to='/postings/'>빌리기</Link>} icon={<ChevronRight />}/>
                     <BottomNavigationAction label={<Link className='btns' to='/postings/'>빌리기 목록</Link>} icon={<Checklist />}/>
-                    <BottomNavigationAction label={<Link className='btns' to='/postings/'>내 상태</Link>} icon={<Badges counter={counter} />}/>
+                    <BottomNavigationAction label={<Link className='btns' to='/postings/'>내 상태</Link>} icon={<Badges counter={counter} counting={counting}/>}/>
                     <BottomNavigationAction label={<Link className='btns' to='/postings/'>빌려주기</Link>} icon={<ChevronLeft/>}/>
                     <BottomNavigationAction label={<Link className='btns' to='/postings/'>빌려주기 목록</Link>} icon={<ChecklistRtl />}/>
                     {/* <div className='font-link'>list</div> */}

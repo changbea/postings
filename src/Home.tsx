@@ -11,6 +11,7 @@ import Navigation from './Navigation'
 
 function Home({ isLoggedIn, userObj, setUserObj, value, newAccount, setNewAccount, side, setSide, sideNavigation, setSideNavigation, setValue, check, setCheck, counter, setCounter}) {
     const [num, setNum] = useState(null)
+    const [counting, setCounting] = useState(0)
     // const noticeBorrowOnClick = (boolean) => setNoticeBorrow(boolean)
     // useEffect(() => {
     //     onSnapshot(query(collection(dbservice, 'num'), orderBy('creatorClock', 'desc')), (snapshot) => {
@@ -54,14 +55,14 @@ function Home({ isLoggedIn, userObj, setUserObj, value, newAccount, setNewAccoun
                             <Add isLoggedIn={isLoggedIn} userObj={userObj} valuing={value}/>
                         }
                         {value === 1 &&
-                            <Notice isLoggedIn={isLoggedIn} userObj={userObj} valuing={value} setValue={setValue}/>
+                            <Notice isLoggedIn={isLoggedIn} userObj={userObj} valuing={value} setValue={setValue} counter={counter} setCounter={setCounter} />
                         }
-                        {value === 2 && <Menu userObj={userObj}/>}
+                        {value === 2 && <Menu counting={counting} setCounting={setCounting} isLoggedIn={isLoggedIn} userObj={userObj} counter={counter} setCounter={setCounter} />}
                         {value === 3 && 
                             <Add isLoggedIn={isLoggedIn} userObj={userObj} valuing={value}/>
                         }
                         {value === 4 &&
-                            <Notice isLoggedIn={isLoggedIn} userObj={userObj} valuing={value} setValue={setValue}/>
+                            <Notice isLoggedIn={isLoggedIn} userObj={userObj} valuing={value} setValue={setValue} counter={counter} setCounter={setCounter} />
                         }
                     </div>
                 }
@@ -79,7 +80,7 @@ function Home({ isLoggedIn, userObj, setUserObj, value, newAccount, setNewAccoun
                     </div>
                 }
             </div>
-            <Navigations counter={counter} isLoggedIn={isLoggedIn} value={value} setValue={setValue} sideNavigation={sideNavigation} setSideNavigation={setSideNavigation} check={check} setCheck={setCheck}/>
+            <Navigations counting={counting} setCounting={setCounting} counter={counter} isLoggedIn={isLoggedIn} value={value} setValue={setValue} sideNavigation={sideNavigation} setSideNavigation={setSideNavigation} check={check} setCheck={setCheck}/>
         </div>
 
     )

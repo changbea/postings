@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
 import { BrowserRouter, Routes, Route, useNavigate, Link, useLocation } from 'react-router-dom'
 import Btn from './Btn';
+import Steppers from './Steppers';
+import Button from '@mui/material/Button';
 // import { auth, onSocialClick, dbservice, storage } from './serverbase'
 // import { collection, query, where, orderBy, addDoc, getDocs, doc, onSnapshot, deleteDoc, updateDoc } from 'firebase/firestore';
 // import supporting from './supporting';
@@ -8,7 +10,7 @@ import Btn from './Btn';
 // import confirming from './confirming';
 // import Dialogs from './Dialogs';
 
-function Specific() {
+function Specific( ) {
   const {state} = useLocation()
   const navigate = useNavigate()
 
@@ -23,10 +25,11 @@ function Specific() {
   }
   return (
     <div>
-      {state.msgObj.round === 1 && 
+      <Steppers msgObj={state.msgObj}/>
+      {state.msgObj.text.choose === 1 && 
         <div className='d-flex justify-content-center'>빌리기</div>
       }
-      {state.msgObj.round === 2 && 
+      {state.msgObj.text.choose === 2 && 
         <div className='d-flex justify-content-center'>빌려주기</div>
       }
       <div className='d-flex justify-content-center'>요청 유저 이름: {state.msgObj.displayName}</div>
@@ -39,7 +42,10 @@ function Specific() {
       <div className='d-flex justify-content-center'>진행 단계: {state.msgObj.round}</div>
       <Btn msgObj={state.msgObj} isOwner={state.isOwner} userObj={state.userObj} num={state.num} value={state.value} />
       <div className='d-flex justify-content-center'>
-        <button className='btn btn-outline-primary' onClick={onClick}>confirm</button>
+        <button className='btn btn-outline-primary' onClick={onClick}>취소</button>
+      </div>
+      <div className='d-flex justify-content-center'>
+        <Button variant='outlined' onClick={onClick}>취소</Button>
       </div>
     </div>
   )

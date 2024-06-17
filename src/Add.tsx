@@ -41,6 +41,10 @@ function Add({ isLoggedIn, userObj, valuing }) {
       if(count !== 0 && counter !== 0 && from !== '' && to !== '') {
         if (from.gmt > to.gmt) {
             alert('시간을 확인해주세요')
+        } else if (from.gmt < Date.now()) {
+            alert('시간을 확인해주세요')
+        } else if (to.gmt < Date.now()) {
+            alert('시간을 확인해주세요')
         } else {
             console.log(to.year-from.year)
             console.log(to.month-from.month)
